@@ -1,8 +1,9 @@
 from datetime import datetime
 import RPi.GPIO as GPIO
 
-GPIO.setup(18, GPIO.OUT)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.IN)
 
 for i in range(0,100):
-	GPIO.output(18, state)
-	print(state, datetime.now().strftime("%S.%f"))
+	input_value = GPIO.input(18)
+	print(input_value, datetime.now().strftime("%S.%f"))
